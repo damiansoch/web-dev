@@ -1,4 +1,5 @@
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import ContactBody from './components/ContactBody';
 import GalleryCorousel from './components/GalleryCorousel';
 import Header from './components/Header';
 import HomeBody from './components/HomeBody';
@@ -27,24 +28,12 @@ const priceDetails = [
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App '>
       <Header />
       <Container>
-        <div id='home' style={{ height: '90vh', paddingTop: '10vh' }}>
-          <HomeBody />
-        </div>
-        <div
-          id='gallery'
-          className='d-flex justify-content-center align-items-center'
-          style={{ height: '100vh' }}
-        >
-          <GalleryCorousel />
-        </div>
-        <div
-          id='pricing'
-          style={{ minHeight: '100vh', marginTop: '20vh' }}
-          className='d-flex flex-wrap justify-content-evenly align-items-center '
-        >
+        <HomeBody />
+        <GalleryCorousel />
+        <Row id='pricing' className='d-flex justify-content-evenly '>
           {priceDetails.map((detail, index) => (
             <PricingBody
               key={index + 1}
@@ -53,10 +42,9 @@ function App() {
               price={detail.price}
             />
           ))}
-        </div>
-        <div id='contact' style={{ height: '50vh', marginTop: '20vh' }}>
-          <>Contact</>
-        </div>
+        </Row>
+
+        <ContactBody />
       </Container>
     </div>
   );

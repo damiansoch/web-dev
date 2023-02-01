@@ -2,10 +2,24 @@ import { Col, ListGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 const PricingBody = ({ title, details, price }) => {
+  useEffect(() => {
+    AOS.init({ duration: 2000 });
+  }, []);
+
   return (
-    <Col lg={3} md={12} sm={12} xs={12} className='mb-3'>
-      <Card className=' rounded'>
+    <Col
+      sm={12}
+      md={8}
+      lg={4}
+      data-aos='flip-up'
+      data-aos-anchor-placement='top-center'
+    >
+      <Card className=' rounded my-2 mt-5'>
         <Card.Body>
           <Button
             variant='primary'
